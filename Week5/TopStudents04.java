@@ -35,4 +35,18 @@ public class TopStudents04 {
             }
         }
     }
+
+    public void selectionSort() {
+        for (int i = 0; i < idx; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < idx; j++) {
+                if (listStudents[j].gpa < listStudents[minIndex].gpa) {
+                    minIndex = j;
+                }
+            }
+            Student04 temp = listStudents[minIndex];
+            listStudents[minIndex] = listStudents[i];
+            listStudents[i] = temp;
+        }
+    }
 }
