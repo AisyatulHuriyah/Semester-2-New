@@ -44,6 +44,10 @@ public class StudentDemo04 {
         topStudents.print();
         System.out.println();
 
+        topStudents.insertionSort();
+        System.out.println("Sorted list (by GPA, ascending) using Insertion sort: ");
+        topStudents.print();
+
         scanner.close();
     }
 }
