@@ -1,20 +1,43 @@
 package Week5;
 
+import java.util.Scanner;
+
 public class StudentDemo04 {
     public static void main(String[] args) {
-        TopStudents04 topStudents = new TopStudents04(5);
+        Scanner scanner = new Scanner(System.in);
 
-        topStudents.add(new Student04("2201", "Alice", "A", 3.9));
-        topStudents.add(new Student04("2202", "Bob", "B", 3.7));
-        topStudents.add(new Student04("2203", "Charlie", "C", 3.8));
-        topStudents.add(new Student04("2204", "David", "D", 3.6));
-        topStudents.add(new Student04("2205", "Eve", "E", 4.0));
+        System.out.print("Enter number of students: ");
+        int n = scanner.nextInt();
+        scanner.nextLine();
 
-        System.out.println("Original student list: ");
+        TopStudents04 topStudents = new TopStudents04(n);
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("\n--- Enter data for student " + (i + 1) + " ---");
+            
+            System.out.print("NIM: ");
+            String nim = scanner.nextLine();
+            
+            System.out.print("Name: ");
+            String name = scanner.nextLine();
+            
+            System.out.print("Class: ");
+            String studentClass = scanner.nextLine();
+            
+            System.out.print("GPA: ");
+            double gpa = scanner.nextDouble();
+            scanner.nextLine();
+            
+            topStudents.add(new Student04(nim, name, studentClass, gpa));
+        }
+
+        System.out.println("\nOriginal student list: ");
         topStudents.print();
 
         topStudents.bubbleSort();
-        System.out.println("Sorted student list (by GPA, descending): ");
+        System.out.println("\nSorted student list (by GPA, descending): ");
         topStudents.print();
+
+        scanner.close();
     }
 }
