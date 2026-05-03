@@ -54,6 +54,7 @@ public class StudentDemo04 {
                 case 4:
                     System.out.println("The Assignment list : ");
                     stack.print();
+                    System.out.println("Total assignments: " + stack.count() + "\n"); // modify no 6
                 break;
 
                 case 5:

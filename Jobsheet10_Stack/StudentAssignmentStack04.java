@@ -66,4 +66,8 @@ public class StudentAssignmentStack04 {
         return stack[0];   // elemen pertama di indeks 0
     }
     }
+
+    public int count() {
+        return top + 1;
+    }
 }
