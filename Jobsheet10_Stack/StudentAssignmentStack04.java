@@ -70,4 +70,18 @@ public class StudentAssignmentStack04 {
     public int count() {
         return top + 1;
     }
+
+    public String convertToBinary(int grade) {
+    ConversionStack04 convStack = new ConversionStack04();
+    while (grade > 0) {
+        int mod = grade % 2;
+        convStack.push(mod);
+        grade = grade / 2;
+    }
+    String binary = "";
+    while (!convStack.isEmpty()) {
+        binary += convStack.pop();
+    }
+    return binary;
+    }
 }

@@ -41,6 +41,8 @@ public class StudentDemo04 {
                         scan.nextLine();
                         dinilai.grading(nilai);
                         System.out.printf("Assignment grade of %s is %d\n\n", dinilai.name, nilai);
+                        String binary = stack.convertToBinary(nilai); //Experimen 2
+                        System.out.printf("Assignment grade in binary is %s\n\n", binary);
                     }
                 break;
 
