@@ -14,6 +14,7 @@ public class StudentDemo04 {
             System.out.println("2. Grade the Assignment");
             System.out.println("3. View top Assignment");
             System.out.println("4. View all Assignment");
+            System.out.println("5. View First Submitted Assignment");
             System.out.print("Choose : ");
             pilih = scan.nextInt();
             scan.nextLine();
@@ -55,10 +56,17 @@ public class StudentDemo04 {
                     stack.print();
                 break;
 
+                case 5:
+                    Student04 pertama = stack.firstSubmitted();
+                    if (pertama != null) {
+                        System.out.println("The first submitted assignment comes from : " + pertama.name + "\n");
+                    }
+                break;
+
                 default:
                     System.out.println("Invalid Choice.\n");
             }
-        } while (pilih >=1 && pilih <= 4);
+        } while (pilih >=1 && pilih <= 5);
 
         scan.close();
     }

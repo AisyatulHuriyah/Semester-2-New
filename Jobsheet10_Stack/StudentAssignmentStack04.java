@@ -56,4 +56,14 @@ public class StudentAssignmentStack04 {
         }
         System.out.println();
     }
+
+    // modify question no 5
+    public Student04 firstSubmitted() {
+    if (isEmpty()) {
+        System.out.println("Stack masih kosong!");
+        return null;
+    } else {
+        return stack[0];   // elemen pertama di indeks 0
+    }
+    }
 }
