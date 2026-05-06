@@ -79,6 +79,7 @@ public class Queue {
             System.out.printf("%d is successfully added at index %d\n", dt, rear);
         } else {
             System.out.println("Queue is full!!");
+            System.exit(0);
         }
     }
 
@@ -98,6 +99,7 @@ public class Queue {
             }
         } else {
             System.out.println("Queue is empty!!");
+            System.exit(0);
         }
         return dt;
     }
