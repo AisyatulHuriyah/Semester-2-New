@@ -54,6 +54,34 @@ public class BuyerQueue {
         }
     }
 
+    void removeByQueueNumber(int targetNumber) {
+    if (isEmpty()) {
+        System.out.println("Antrian kosong.");
+        return;
+    }
+    Node current = head;
+    while (current != null) {
+        if (current.queueNumber == targetNumber) {
+
+            if (current == head && current == tail) {
+                head = tail = null;
+            } else if (current == head) {
+                head = head.next;
+                head.prev = null;
+            } else if (current == tail) {
+                tail = tail.prev;
+                tail.next = null;
+            } else {
+                current.prev.next = current.next;
+               current.next.prev = current.prev;
+            }
+            System.out.println("Antrian nomor " + targetNumber + " (" + current.data.Name + ") telah dihapus.");
+            return;
+        }
+        current = current.next;
+    }
+    }
+
     Buyer getFirstBuyer() {
         if (isEmpty()) return null;
         return head.data;

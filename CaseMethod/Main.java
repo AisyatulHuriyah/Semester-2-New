@@ -36,7 +36,7 @@ class OrderList {
             return;
         }
         sortOrdersByName();
-         System.out.println("\n==============================");
+        System.out.println("\n==============================");
         System.out.println("LAPORAN PESANAN (URUT NAMA PESANAN)");
         System.out.println("==============================");
         System.out.println("Kode\tNama\t\tHarga");
@@ -44,7 +44,22 @@ class OrderList {
             orders[i].print();
         }
     }
-}
+
+    void showtotalPrice() {
+        if (count == 0) {
+            System.out.println("Belum ada pesanan.");
+        return;
+        }
+        int totalPrice = 0;
+            for (int i = 0; i < count; i++) {
+        totalPrice += orders[i].price;
+        }
+        System.out.println("==============================");
+        System.out.println("Total Price : " + totalPrice);
+        System.out.println("==============================");
+        }        
+    }
+
 
 public class Main {
     public static void main(String[] args) {
@@ -74,7 +89,7 @@ public class Main {
                     System.out.print("Nomor HP: ");
                     String phone = sc.nextLine();
                     dll.addLast(new Buyer(name, phone), nextQueueNumber);
-                    System.out.println("Antrian berhasil di tambahkan dengan nomor: " + nextQueueNumber);
+                    //System.out.println("Antrian berhasil di tambahkan dengan nomor: " + nextQueueNumber);
                     nextQueueNumber++;
                     break;
                 case 2:
@@ -84,8 +99,14 @@ public class Main {
                     if (dll.isEmpty()) {
                         System.out.println("Antrian kosong! Tidak ada pelanggan dipanggil.");
                     } else {
-                        Buyer buyer = dll.getFirstBuyer();
-                        int nomor = dll.getFirstQueueNumber();
+                        //Buyer buyer = dll.getFirstBuyer();
+                        //int nomor = dll.getFirstQueueNumber();
+                        
+                        //dll.removeFirst();
+                        System.out.print("Masukkan nomor antrian yang akan dihapus: ");
+                        int queueNum = sc.nextInt();
+                        sc.nextLine();
+                        dll.removeByQueueNumber(queueNum);
                         System.out.print("Order Code: ");
                         int code = sc.nextInt();
                         sc.nextLine();
@@ -96,12 +117,11 @@ public class Main {
                         sc.nextLine();
                         Order newOrder = new Order(code, orderName, price);
                         orderList.addOrder(newOrder);
-                        System.out.println(buyer.Name + " telah memesan " + orderName);
-                        dll.removeFirst();
                     }
                     break;
                 case 4:
                     orderList.printReport();
+                    orderList.showtotalPrice();
                     break;
                 case 0:
                     System.out.println("Program selesai.");
