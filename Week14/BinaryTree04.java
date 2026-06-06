@@ -150,7 +150,7 @@ public class BinaryTree04 {
         root = addRekursif(root, data);
     }
 
-    // Method helper rekursif (tanpa private)
+    // Method helper rekursif
     Node04 addRekursif(Node04 current, Student04 data) {
         if (current == null) {
             return new Node04(data);
@@ -161,5 +161,46 @@ public class BinaryTree04 {
             current.right = addRekursif(current.right, data);
         }
         return current;
+    }
+
+    // Mendapatkan IPK terkecil (node paling kiri)
+    public Student04 getMinIPK() {
+        if (isEmpty()) {
+            System.out.println("Tree is empty!");
+            return null;
+        }
+        Node04 current = root;
+        while (current.left != null) {
+            current = current.left;
+        }
+        return current.data;
+    }
+
+    // Mendapatkan IPK terbesar (node paling kanan)
+    public Student04 getMaxIPK() {
+        if (isEmpty()) {
+            System.out.println("Tree is empty!");
+            return null;
+        }
+        Node04 current = root;
+        while (current.right != null) {
+            current = current.right;
+        }
+        return current.data;
+    }
+
+    public void displayStudentsWithIPKAbove(double threshold) {
+        System.out.println("Students with IPK above " + threshold + ":");
+        displayStudentsWithIPKAbove(root, threshold);
+    }
+
+    void displayStudentsWithIPKAbove(Node04 node, double threshold) {
+        if (node == null)
+            return;
+        displayStudentsWithIPKAbove(node.left, threshold);
+        if (node.data.ipk > threshold) {
+            node.data.print();
+        }
+        displayStudentsWithIPKAbove(node.right, threshold);
     }
 }
